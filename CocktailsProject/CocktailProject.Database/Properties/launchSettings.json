@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EntityFrameworkIntroduction.Database": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Data Source=localhost; Database=local-cocktails; Trusted_Connection=True; TrustServerCertificate=True\""
+    }
+  }
+}
