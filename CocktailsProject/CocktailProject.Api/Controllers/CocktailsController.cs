@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EntityFrameworkIntroduction.Api.Controllers
+namespace CocktailProject.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
