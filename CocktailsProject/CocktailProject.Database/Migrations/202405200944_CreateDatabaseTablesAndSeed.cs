@@ -8,7 +8,37 @@ namespace EntityFrameworkIntroduction.Database.Migrations
     {
         public override void Up()
         {
-            Execute.Sql(@"");
+            Execute.Sql(@"
+        CREATE TABLE Cocktail (
+            Id INT PRIMARY KEY IDENTITY(1,1),
+            GlobalId UNIQUEIDENTIFIER NOT NULL,
+            Name NVARCHAR(255) NOT NULL,
+            Description NVARCHAR(MAX),
+            DateCreated DATETIME NOT NULL,
+            DateModified DATETIME NOT NULL,
+            DateDeleted DATETIME
+        );
+        CREATE TABLE Ingredient (
+            Id INT PRIMARY KEY IDENTITY(1,1),
+            GlobalId UNIQUEIDENTIFIER NOT NULL,
+            Name NVARCHAR(255) NOT NULL,
+            DateCreated DATETIME NOT NULL,
+            DateModified DATETIME NOT NULL
+        );
+        CREATE TABLE CocktailIngredient (
+            Id INT PRIMARY KEY IDENTITY(1,1),
+            GlobalId UNIQUEIDENTIFIER NOT NULL,
+            Measurement INT NOT NULL,
+            MeasurementType NVARCHAR(50),
+            CocktailId INT NOT NULL,
+            IngredientId INT NOT NULL,
+            DateCreated DATETIME NOT NULL,
+            DateModified DATETIME NOT NULL,
+            DateDeleted DATETIME NULL,
+            FOREIGN KEY (CocktailId) REFERENCES Cocktail(Id),
+            FOREIGN KEY (IngredientId) REFERENCES Ingredient(Id)
+        );
+");
         }
     }
 }
