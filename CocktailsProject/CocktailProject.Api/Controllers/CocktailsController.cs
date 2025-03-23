@@ -5,8 +5,15 @@ namespace CocktailProject.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CocktailsController(IMediator mediator)
-        : ControllerBase
+    public class CocktailsController : ControllerBase
     {
+        private readonly IMediator _mediator;
+        
+        public CocktailsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+
     }
 }
