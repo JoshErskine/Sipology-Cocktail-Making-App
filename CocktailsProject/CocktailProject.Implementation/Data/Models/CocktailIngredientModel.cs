@@ -9,7 +9,7 @@ public class CocktailIngredientModel
     public int IngredientId { get; set; }
     public DateTime DateCreated { get; set; }
     public DateTime DateModified { get; set; }
-    public DateTime DateDeleted { get; set; }
+    public DateTime? DateDeleted { get; set; }
     public CocktailModel Cocktail { get; set; }
     public IngredientModel Ingredient { get; set; }
 }

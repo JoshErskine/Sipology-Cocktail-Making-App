@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CocktailProject.Api.Requests;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CocktailProject.Api.Controllers
@@ -14,6 +15,13 @@ namespace CocktailProject.Api.Controllers
             _mediator = mediator;
         }
 
-
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAllCocktails(CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(new GetAllCocktailsRequest(), cancellationToken);
+            
+            return Ok(response);
+        }
     }
 }
