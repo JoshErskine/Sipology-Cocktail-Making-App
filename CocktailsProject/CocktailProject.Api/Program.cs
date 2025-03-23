@@ -1,3 +1,4 @@
+using System.Reflection;
 using CocktailProject.Implementation.DI;
 using CocktailProject.Implementation;
 using CocktailProject.Implementation.Data;
@@ -13,10 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContextFactory<CocktailsContext>(options =>
-  options.UseSqlServer(builder.Configuration.GetConnectionString("BloggingContext")));
+  options.UseSqlServer(builder.Configuration.GetConnectionString("CocktailsContext")));
 
 builder.Services.AddMediatR(cfg =>
      cfg.RegisterServicesFromAssembly(typeof(Implementation).Assembly));
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 
