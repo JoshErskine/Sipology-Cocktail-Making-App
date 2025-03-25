@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CocktailProject.Implementation.Data.Models;
+﻿using CocktailProject.Implementation.Data.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace CocktailProject.Implementation.Data;
 
 public class CocktailsContext : DbContext
 {
