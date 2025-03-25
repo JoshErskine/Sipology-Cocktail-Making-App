@@ -1,7 +1,13 @@
-INSERT INTO Cocktail (Id, GlobalId, Name, Description, DateCreated, DateModified, DateDeleted)
+INSERT INTO CocktailIngredient (GlobalId, Measurement, MeasurementType, CocktailId, IngredientId, DateCreated, DateModified, DateDeleted)
 VALUES
-    (1, '550e8400-e29b-41d4-a716-446655440000', 'Margarita', 'A refreshing tequila-based cocktail.', '2025-02-19', '2025-02-19', NULL),
-    (2, '6f9619ff-8b86-d011-b42d-00c04fc964ff', 'Mojito', 'A classic rum and mint cocktail.', '2025-02-19', '2025-02-19', NULL),
-    (3, '9f4b0d00-6295-4d82-a6df-a8cf8f1fa2e4', 'Pina Colada', 'A tropical coconut and pineapple drink.', '2025-02-19', '2025-02-19', NULL),
-    (4, '2a79c9c7-d3a4-4bd7-b38d-7c06d82bc3c7', 'Old Fashioned', 'A whiskey cocktail with bitters.', '2025-02-19', '2025-02-19', NULL),
-    (5, '3e8a23d1-23d5-4e78-978f-39b1d30d2b8f', 'Cosmopolitan', 'A vodka-based cocktail with cranberry juice.', '2025-02-19', '2025-02-19', NULL);
+    ('a1b2c3d4-e5f6-4789-a123-b456c789d012', 2, 'Oz', 1, 1, '2025-02-19', '2025-02-19', NULL), -- Margarita - Tequila
+    ('b2c3d4e5-f6a7-4891-b234-c567d890e123', 1, 'Oz', 1, 4, '2025-02-19', '2025-02-19', NULL), -- Margarita - Lime Juice
+    ('c3d4e5f6-a789-4b12-c345-d678e901f234', 1, 'Oz', 1, 10, '2025-02-19', '2025-02-19', NULL), -- Margarita - Triple Sec
+    ('d4e5f6a7-8912-4c34-d567-e890f123a456', 2, 'Oz', 2, 2, '2025-02-19', '2025-02-19', NULL), -- Mojito - Rum
+    ('e5f6a789-1234-4d56-e789-f012a345b678', 5, 'Leaves', 2, 9, '2025-02-19', '2025-02-19', NULL), -- Mojito - Mint Leaves
+    ('f6a78912-3456-4e78-f901-a234b567c890', 1, 'Oz', 2, 5, '2025-02-19', '2025-02-19', NULL), -- Mojito - Sugar Syrup
+    ('a7891234-5678-4f90-a123-b456c789d012', 2, 'Oz', 3, 3, '2025-02-19', '2025-02-19', NULL), -- Pina Colada - Coconut Cream
+    ('b8912345-6789-4a12-b345-c678d901e234', 1, 'Oz', 3, 2, '2025-02-19', '2025-02-19', NULL), -- Pina Colada - Rum
+    ('c9012345-6789-4b23-c456-d789e012f345', 5, 'Oz', 3, 8, '2025-02-19', '2025-02-19', NULL), -- Pina Colada - Pineapple Juice
+    ('d0123456-789a-4c34-d567-e890f123a456', 2, 'Oz', 4, 6, '2025-02-19', '2025-02-19', NULL), -- Old Fashioned - Whiskey
+    ('e1234567-89ab-4d45-e678-f901a234b567', 1, 'Oz', 5, 7, '2025-02-19', '2025-02-19', NULL); -- Cosmopolitan - Cranberry Juice
