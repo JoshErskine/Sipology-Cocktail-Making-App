@@ -15,6 +15,11 @@ namespace CocktailProject.Api.Controllers
             _mediator = mediator;
         }
 
+        // TODO Return all cocktails
+        // TODO Return cocktail by name
+        // TODO Return cocktails by ingredient
+        // TODO Return all cocktails by multiple ingredients
+        
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllCocktails(CancellationToken cancellationToken)
