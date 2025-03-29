@@ -17,10 +17,4 @@
     <ProjectReference Include="..\CocktailProject.Public\CocktailProject.Public.csproj" />
     <ProjectReference Include="..\CocktailProject.Implementation\CocktailProject.Implementation.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-    <Folder Include="Requests\" />
-    <Folder Include="Responses\" />
-  </ItemGroup>
 </Project>

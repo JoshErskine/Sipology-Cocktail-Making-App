@@ -28,5 +28,14 @@ namespace CocktailProject.Api.Controllers
             
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("by-name{name}")]
+        public async Task<IActionResult> GetCocktailByName(string name, CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(new GetCocktailByNameRequest(), cancellationToken);
+            
+            return Ok();
+        }
     }
 }
