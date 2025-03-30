@@ -14,11 +14,6 @@ namespace CocktailProject.Api.Controllers
         {
             _mediator = mediator;
         }
-
-        // TODO Return all cocktails
-        // TODO Return cocktail by name
-        // TODO Return cocktails by ingredient
-        // TODO Return all cocktails by multiple ingredients
         
         [HttpGet]
         [Route("")]
@@ -39,11 +34,20 @@ namespace CocktailProject.Api.Controllers
         }
 
         [HttpGet]
-        [Route("by-ingredients{ingredients}")]
-        public async Task<IActionResult> GetCocktailsByIngredients(string ingredients,
+        [Route("by-ingredient{ingredient}")]
+        public async Task<IActionResult> GetCocktailsByIngredient(string ingredient,
             CancellationToken cancellationToken)
         {
-            var response = await _mediator.Send(new GetCocktailsByIngredientsRequest(), cancellationToken);
+            var response = await _mediator.Send(new GetCocktailsByIngredientsRequest(ingredient), cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("by-ingredients/{ingredients}")]
+        public async Task<IActionResult> GetCocktailByIngredients([FromQuery]List<string> ingredients,
+            CancellationToken cancellationToken)
+        {
+            var response = await  _mediator.Send(new GetCocktailsByIngredientsRequest(ingredients), cancellationToken);
             return Ok(response);
         }
     }

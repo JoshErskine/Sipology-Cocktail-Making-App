@@ -5,16 +5,15 @@ namespace CocktailProject.Api.Requests;
 
 public class GetCocktailsByIngredientsRequest : IRequest<GetCocktailsByIngredientsResponse>
 {
-    public string Ingredient { get; set; }
-    public List<string> Ingredients { get; set; }
+    public List<string> IngredientNames { get; set; }
 
     public GetCocktailsByIngredientsRequest(string ingredient)
     {
-        Ingredient = ingredient;
+        IngredientNames = new List<string> { ingredient };
     }
 
     public GetCocktailsByIngredientsRequest(List<string> ingredients)
     {
-        Ingredients = ingredients;
+        IngredientNames = ingredients;
     }
 }
