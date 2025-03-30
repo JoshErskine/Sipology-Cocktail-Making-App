@@ -37,5 +37,14 @@ namespace CocktailProject.Api.Controllers
             
             return Ok();
         }
+
+        [HttpGet]
+        [Route("by-ingredients{ingredients}")]
+        public async Task<IActionResult> GetCocktailsByIngredients(string ingredients,
+            CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(new GetCocktailsByIngredientsRequest(), cancellationToken);
+            return Ok(response);
+        }
     }
 }
