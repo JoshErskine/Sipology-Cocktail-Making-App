@@ -16,38 +16,10 @@ namespace CocktailProject.Api.Controllers
         }
         
         [HttpGet]
-        [Route("")]
-        public async Task<IActionResult> GetAllCocktails(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAllCocktails([FromQuery]GetAllCocktailsRequest request, CancellationToken cancellationToken)
         {
-            var response = await _mediator.Send(new GetAllCocktailsRequest(), cancellationToken);
+            var response = await _mediator.Send(request, cancellationToken);
             
-            return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("by-name{name}")]
-        public async Task<IActionResult> GetCocktailByName(string name, CancellationToken cancellationToken)
-        {
-            var response = await _mediator.Send(new GetCocktailByNameRequest(), cancellationToken);
-            
-            return Ok();
-        }
-
-        [HttpGet]
-        [Route("by-ingredient{ingredient}")]
-        public async Task<IActionResult> GetCocktailsByIngredient(string ingredient,
-            CancellationToken cancellationToken)
-        {
-            var response = await _mediator.Send(new GetCocktailsByIngredientsRequest(ingredient), cancellationToken);
-            return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("by-ingredients/{ingredients}")]
-        public async Task<IActionResult> GetCocktailByIngredients([FromQuery]List<string> ingredients,
-            CancellationToken cancellationToken)
-        {
-            var response = await  _mediator.Send(new GetCocktailsByIngredientsRequest(ingredients), cancellationToken);
             return Ok(response);
         }
     }

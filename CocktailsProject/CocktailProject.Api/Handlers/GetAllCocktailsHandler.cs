@@ -18,10 +18,25 @@ public class GetAllCocktailsHandler : IRequestHandler<GetAllCocktailsRequest, Ge
     
     public async Task<GetAllCocktailResponse> Handle(GetAllCocktailsRequest request, CancellationToken cancellationToken)
     {
-        var cocktails = await _context.Cocktail
+        var query =  _context.Cocktail.AsQueryable();
+
+        if (request.Name != null && request.Name.Any())
+        {
+            query.Include(x => x.Name)
+                .Include(x => x.CocktailIngredients)
+                .ThenInclude(x => x.Ingredient)
+                .ThenInclude(x => x.Name);
+        }
+
+        if (request.Ingredients != null && request.Ingredients.Any())
+        {
+            
+        }
+        
+        var cocktails = await query
             .Include(x => x.CocktailIngredients)
             .ThenInclude(x => x.Ingredient)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
 
         var cocktailDto = cocktails
             .Select(x => new CocktailDto
